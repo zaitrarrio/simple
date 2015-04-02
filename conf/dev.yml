@@ -1,0 +1,43 @@
+server:
+  applicationConnectors:
+    # Comment below if you want HTTPS only (maybe for security?)
+    - type: http
+      port: 8281
+      
+  adminConnectors:
+    - type: http
+      port: 8282
+
+logging:
+  level:  INFO  # default level off all loggers
+
+  loggers:
+    com.example:             DEBUG
+
+  appenders:
+    - type: console
+      timeZone: UTC
+
+
+# custom top-level config (this one also has a non-empty validator)
+appName: My Simple Service App
+
+# Database settings.
+database:
+
+  # the name of your JDBC driver
+  driverClass: org.h2.Driver
+
+  # the username
+  user: sa
+
+  # the password
+  password: 
+
+  # the JDBC URL
+  url: jdbc:h2:./target/simple
+
+# custom top-level section
+swagger:
+    host: localhost
+    port: 8281
